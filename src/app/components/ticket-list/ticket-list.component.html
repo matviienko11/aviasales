@@ -1,1 +1,4 @@
-<p>ticket-list works!</p>
+<p>Search id: {{searchId$ | async}}</p>
+<div class="ticket_list_wrapper">
+  <app-ticket-item [tickets]="tickets$ | async"></app-ticket-item>
+</div>

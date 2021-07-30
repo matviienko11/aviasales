@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  ID_SEARCH_URL: 'https://front-test.beta.aviasales.ru/search',
+  TICKET_SEARCH_URL: 'https://front-test.beta.aviasales.ru/tickets?searchId='
 };
 
 /*

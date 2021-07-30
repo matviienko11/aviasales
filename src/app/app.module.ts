@@ -12,6 +12,13 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {MatTabsModule} from "@angular/material/tabs";
+import {HttpClientModule} from "@angular/common/http";
+import {StoreModule} from "@ngrx/store";
+import {searchIdReducer, ticketReducer} from "./store/ticket.reducer";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {environment} from "../environments/environment";
+import {EffectsModule} from "@ngrx/effects";
+import {TicketsEffects} from "./store/tickets.effects";
 
 @NgModule({
   declarations: [
@@ -28,7 +35,11 @@ import {MatTabsModule} from "@angular/material/tabs";
     NoopAnimationsModule,
     MatCardModule,
     MatButtonModule,
-    MatTabsModule
+    MatTabsModule,
+    StoreModule.forRoot({searchId: searchIdReducer, tickets: ticketReducer}),
+    EffectsModule.forRoot([TicketsEffects]),
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

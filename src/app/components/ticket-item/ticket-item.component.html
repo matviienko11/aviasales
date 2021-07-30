@@ -1,1 +1,6 @@
-<p>ticket-item works!</p>
+<!--<div *ngFor="let ticket of tickets">{{ticket.price}}</div>-->
+<mat-card *ngFor="let ticket of tickets">
+  <div>
+    <h3>{{ticket.price}}</h3>
+  </div>
+</mat-card>
