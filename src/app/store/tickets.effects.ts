@@ -31,7 +31,7 @@ export class TicketsEffects {
       }),
       switchMap((data) => {
         console.log(data)
-          return this.ticketService.getTickets('98oi').pipe(
+          return this.ticketService.getTickets('49w0j').pipe(
             map(tickets => (getTickets({tickets})),
               catchError(() => of(errorTickets())))
           )

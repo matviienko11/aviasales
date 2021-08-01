@@ -1,6 +1,11 @@
 <!--<div *ngFor="let ticket of tickets">{{ticket.price}}</div>-->
 <mat-card *ngFor="let ticket of tickets">
-  <div>
+  <mat-card-header class="header">
     <h3>{{ticket.price}}</h3>
-  </div>
+    <p>Aviasales logo</p>
+  </mat-card-header>
+  <mat-card-content>
+    {{ticket.segments[0].origin + '-' + ticket.segments[0].destination}}
+    {{ticket.segments[0].duration}}
+  </mat-card-content>
 </mat-card>

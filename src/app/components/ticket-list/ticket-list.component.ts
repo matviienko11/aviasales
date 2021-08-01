@@ -19,6 +19,7 @@ export class TicketListComponent implements OnInit {
     console.log(state.tickets)
     return state.tickets
   });
+  time: any;
 
   constructor(private ticketService: TicketsService, private store: Store<any>) { }
 
@@ -41,7 +42,7 @@ export class TicketListComponent implements OnInit {
     //   this.store.dispatch(getTickets({tickets}))
     // })
     this.store.dispatch(loadSearchId());
-    this.store.dispatch(loadTickets())
+    this.store.dispatch(loadTickets());
   }
 
 }
