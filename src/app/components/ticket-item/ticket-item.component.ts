@@ -9,12 +9,11 @@ import {Ticket} from "../../interfaces/ticket.interface";
 export class TicketItemComponent implements OnInit {
 
   @Input()
-  tickets!: Ticket[] | null;
+  tickets!: Ticket[] | undefined | null;
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.tickets)
   }
 
   showTicket(ticket: any) {

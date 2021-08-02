@@ -1,4 +1,3 @@
-<p>Search id: {{searchId$ | async}}</p>
 <div class="ticket_list_wrapper">
-  <app-ticket-item [tickets]="tickets$ | async"></app-ticket-item>
+  <app-ticket-item [tickets]="sortedByPrice || sortedBySpeed"></app-ticket-item>
 </div>
