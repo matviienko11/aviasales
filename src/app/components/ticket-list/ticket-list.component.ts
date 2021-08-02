@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {TicketsService} from "../../services/tickets.service";
 import {Store, select} from "@ngrx/store";
 import {selectSearchId, selectTicket} from "../../store/ticket.selectors";
@@ -16,8 +16,7 @@ export class TicketListComponent implements OnInit {
     return state.searchId.searchId
   });
   tickets$ = this.store.select(state => {
-    console.log(state.tickets)
-    return state.tickets
+    return state.tickets.slice(0, 5)
   });
   time: any;
 

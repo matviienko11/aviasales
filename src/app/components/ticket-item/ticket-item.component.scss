@@ -1,4 +1,17 @@
+.card {
+  margin: 2rem;
+}
+
 .header {
   display: flex;
   justify-content: space-around;
 }
+
+.direction {
+  display: flex;
+  justify-content: space-between;
+  div {
+    margin: 1rem;
+  }
+}
+

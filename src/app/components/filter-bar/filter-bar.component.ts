@@ -12,4 +12,7 @@ export class FilterBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onCheapestSort() {
+    console.log('hello')
+  }
 }

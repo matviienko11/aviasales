@@ -19,6 +19,9 @@ import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {environment} from "../environments/environment";
 import {EffectsModule} from "@ngrx/effects";
 import {TicketsEffects} from "./store/tickets.effects";
+import {toHoursPipe} from "./utils/pipes/toHours.pipe";
+import {timeFormat} from "./utils/pipes/date-format.pipe";
+import {stopsFormatPipe} from "./utils/pipes/stops-format.pipe";
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import {TicketsEffects} from "./store/tickets.effects";
     TicketListComponent,
     TicketItemComponent,
     FilterBarComponent,
-    StopsCountFilterComponent
+    StopsCountFilterComponent,
+    toHoursPipe,
+    timeFormat,
+    stopsFormatPipe
   ],
   imports: [
     BrowserModule,

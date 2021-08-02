@@ -1,11 +1,42 @@
-<!--<div *ngFor="let ticket of tickets">{{ticket.price}}</div>-->
-<mat-card *ngFor="let ticket of tickets">
-  <mat-card-header class="header">
-    <h3>{{ticket.price}}</h3>
-    <p>Aviasales logo</p>
-  </mat-card-header>
-  <mat-card-content>
-    {{ticket.segments[0].origin + '-' + ticket.segments[0].destination}}
-    {{ticket.segments[0].duration}}
+<mat-card *ngFor="let ticket of tickets" class="card">
+<!--  <mat-card-header class="header">-->
+<!--    <p>{{ticket.price}}</p>-->
+<!--    <p>Aviasales logo</p>-->
+<!--  </mat-card-header>-->
+  <mat-card-content (click)="showTicket(ticket)">
+    <div class="header">
+          <p>{{ticket.price}}</p>
+          <p>Aviasales logo</p>
+    </div>
+    <div class="direction">
+      <div>
+        <p>{{ticket.segments[0].origin + '-' + ticket.segments[0].destination}}</p>
+        <p>{{ticket.segments[0].date | date: 'HH:mm': 'GMT'}} - {{ticket.segments[0].date | timeDiff: ticket.segments[0].duration | date: 'HH:mm': 'GMT'}}</p>
+      </div>
+      <div>
+        <p>В ПУТИ</p>
+        <p>{{ticket.segments[0].duration | hours}}</p>
+      </div>
+      <div>
+        <p>{{ticket.segments[0].stops.length | stops}}</p>
+        <p>{{ticket.segments[0].stops.join(', ')}}</p>
+      </div>
+    </div>
+    <div class="direction">
+      <div>
+        <p>{{ticket.segments[1].origin + '-' + ticket.segments[1].destination}}</p>
+        <p>{{ticket.segments[1].date | date: 'HH:mm': 'GMT'}} - {{ticket.segments[1].date | timeDiff: ticket.segments[1].duration | date: 'HH:mm': 'GMT'}}</p>
+      </div>
+      <div>
+        <p>В ПУТИ</p>
+        <p>{{ticket.segments[1].duration | hours}}</p>
+      </div>
+      <div>
+        <p>{{ticket.segments[1].stops.length | stops}}</p>
+        <p>{{ticket.segments[1].stops.join(', ')}}</p>
+      </div>
+    </div>
+
+
   </mat-card-content>
 </mat-card>

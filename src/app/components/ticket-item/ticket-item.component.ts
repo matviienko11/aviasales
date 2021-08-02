@@ -11,13 +11,13 @@ export class TicketItemComponent implements OnInit {
   @Input()
   tickets!: Ticket[] | null;
 
-  // segments = this.tickets?.map(item => item.segments[0]);
-  time = this.tickets?.map(item => console.log(item))
   constructor() { }
 
   ngOnInit(): void {
     console.log(this.tickets)
-    // console.log(this.segments)
   }
 
+  showTicket(ticket: any) {
+    console.log(ticket)
+  }
 }

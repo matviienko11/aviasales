@@ -6,6 +6,7 @@ import {of, pipe} from "rxjs";
 import {errorSearchId, errorTickets, getSearchId, getTickets, loadSearchId, loadTickets} from "./ticket.actions";
 import {Store} from "@ngrx/store";
 import * as fromRoot from "./ticket.reducer";
+import {searchIdReducer} from "./ticket.reducer";
 
 @Injectable()
 export class TicketsEffects {
@@ -23,15 +24,15 @@ export class TicketsEffects {
   loadTickets$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(loadTickets),
-      concatLatestFrom(() => {
-        return this.store.select(state => {
-          console.log(state)
-          return state.searchId
-        })
+      switchMap(() => {
+        // return this.ticketService.getSearchId().pipe(
+        //   map((searchId) => getSearchId({searchId})),
+        //   catchError(() => of(errorSearchId()))
+        // )
+        return this.ticketService.getSearchId()
       }),
-      switchMap((data) => {
-        console.log(data)
-          return this.ticketService.getTickets('49w0j').pipe(
+      switchMap(({searchId}) => {
+          return this.ticketService.getTickets(searchId).pipe(
             map(tickets => (getTickets({tickets})),
               catchError(() => of(errorTickets())))
           )
