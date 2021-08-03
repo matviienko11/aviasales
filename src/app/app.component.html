@@ -1,9 +1,9 @@
 <div class="wrapper">
   <div class="left">
-    <app-stops-count-filter></app-stops-count-filter>
+    <app-stops-count-filter (stopsNumber)="handleStopsNumber($event)"></app-stops-count-filter>
   </div>
   <div class="right">
-    <app-filter-bar></app-filter-bar>
+    <app-filter-bar [stopsNumber]="stopsNumber"></app-filter-bar>
   </div>
 </div>
 

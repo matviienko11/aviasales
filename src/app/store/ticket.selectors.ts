@@ -13,3 +13,13 @@ export const selectTicket = createSelector(
     return tickets;
   }
 )
+
+export const selectTickets = (state: AppState) => state.ticket;
+
+export const selectTicketsByStops = (stops: any) => createSelector(
+  selectTickets,
+  (tickets: Array<Ticket>) => {
+    console.log('hello fron store', stops)
+    return tickets;
+  }
+)

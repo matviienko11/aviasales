@@ -1,3 +1,4 @@
 <div class="ticket_list_wrapper">
-  <app-ticket-item [tickets]="sortedByPrice || sortedBySpeed"></app-ticket-item>
+  <app-ticket-item *ngFor="let ticket of tickets"
+                   [ticket]="ticket"></app-ticket-item>
 </div>

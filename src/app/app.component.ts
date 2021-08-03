@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  stopsNumber: any;
+
+  handleStopsNumber(e: any) {
+    this.stopsNumber = e;
+  }
 }

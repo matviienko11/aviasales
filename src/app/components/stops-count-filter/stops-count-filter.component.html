@@ -7,24 +7,23 @@
   </div>
 
   <div>
-    <input type="checkbox" id="w_o_stops">
+    <input type="checkbox" id="w_o_stops" value="0" (change)="handleStops($event)">
     <label for="w_o_stops">Без пересадок</label>
   </div>
 
   <div>
-    <input type="checkbox" id="one_stop">
+    <input type="checkbox" id="one_stop" value="1" (change)="handleStops($event)">
     <label for="one_stop">1 пересадка</label>
   </div>
 
   <div>
-    <input type="checkbox" id="two_stops">
+    <input type="checkbox" id="two_stops" value="2" (change)="handleStops($event)">
     <label for="two_stops">2 пересадки</label>
   </div>
 
   <div>
-    <input type="checkbox" id="tree_stops">
+    <input type="checkbox" id="tree_stops" value="3" (change)="handleStops($event)">
     <label for="tree_stops">3 пересадки</label>
   </div>
 
 </mat-card>
-

@@ -8,8 +8,7 @@ import {Ticket} from "../../interfaces/ticket.interface";
 })
 export class TicketItemComponent implements OnInit {
 
-  @Input()
-  tickets!: Ticket[] | undefined | null;
+  @Input() ticket: Ticket;
 
   constructor() { }
 

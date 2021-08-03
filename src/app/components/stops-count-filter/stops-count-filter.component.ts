@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
+
 
 @Component({
   selector: 'app-stops-count-filter',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StopsCountFilterComponent implements OnInit {
 
+  @Output()
+  stopsNumber = new EventEmitter<any>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  handleStops(e: any) {
+    if(e.currentTarget.checked) {
+      this.stopsNumber.emit(e.target.value)
+    }
+    if(!e.currentTarget.checked) {
+      this.stopsNumber.emit(null)
+    }
+  }
 }
