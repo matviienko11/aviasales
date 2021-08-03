@@ -1,9 +1,9 @@
 import {createReducer, on, Action} from "@ngrx/store";
-import {getSearchId, getTickets} from "./ticket.actions";
-import {Ticket} from "../interfaces/ticket.interface";
+import {filterTickets, getSearchId, getTickets, sortingTickets} from "./ticket.actions";
+import {TicketInterface} from "../interfaces/ticket.interface";
 
 export const initialSearchState: string = '';
-export const initialTicketState: Ticket[] = [];
+export const initialTicketState: TicketInterface[] = [];
 
 export const searchIdReducer = createReducer(
     initialSearchState,
@@ -15,6 +15,21 @@ export const searchIdReducer = createReducer(
 export const ticketReducer = createReducer(
   initialTicketState,
   on(getTickets, (state, {tickets}) => {
-    return [...tickets.tickets]
+    return {
+      ...state,
+      data: tickets.tickets
+    }
+  }),
+  on(sortingTickets, (state, { sorting }) => {
+    return {
+      ...state,
+      sorting
+    }
+  }),
+  on(filterTickets, (state, {filters}) => {
+    return {
+      ...state,
+      filters
+    }
   })
 )

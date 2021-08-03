@@ -1,9 +1,9 @@
-<mat-tab-group (selectedTabChange)="handle($event)">
+<mat-tab-group (selectedTabChange)="handleTabChange($event)">
   <mat-tab label="Самый дешевый">
-    <app-ticket-list [tickets]="sortedByPriceTickets | async" ></app-ticket-list>
+    <app-ticket-list [tickets]="tickets"></app-ticket-list>
   </mat-tab>
   <mat-tab label="Самый быстрый">
-    <app-ticket-list [tickets]="sortedBySpeedTickets | async"></app-ticket-list>
+    <app-ticket-list [tickets]="tickets"></app-ticket-list>
   </mat-tab>
 </mat-tab-group>
 

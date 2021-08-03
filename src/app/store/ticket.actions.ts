@@ -1,5 +1,4 @@
 import {createAction, props} from "@ngrx/store";
-import {Ticket} from "../interfaces/ticket.interface";
 
 export const loadSearchId = createAction(
   '[Search id] Load search id'
@@ -25,4 +24,14 @@ export const getTickets = createAction(
 
 export const errorTickets = createAction(
   '[TICKETS] Error tickets'
+)
+
+export const filterTickets = createAction(
+  '[TICKETS] Filter tickets',
+  props<{filters: any[]}>()
+)
+
+export const sortingTickets = createAction(
+  '[TICKETS] Sorting tickets',
+  props<{sorting: string}>()
 )

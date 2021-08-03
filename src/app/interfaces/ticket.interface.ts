@@ -1,4 +1,4 @@
-export interface Ticket {
+export interface TicketInterface {
   price: number
   // Код авиакомпании (iata)
   carrier: string

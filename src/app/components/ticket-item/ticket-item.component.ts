@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
-import {Ticket} from "../../interfaces/ticket.interface";
+import {TicketInterface} from "../../interfaces/ticket.interface";
 
 @Component({
   selector: 'app-ticket-item',
@@ -8,7 +8,7 @@ import {Ticket} from "../../interfaces/ticket.interface";
 })
 export class TicketItemComponent implements OnInit {
 
-  @Input() ticket: Ticket;
+  @Input() ticket: TicketInterface;
 
   constructor() { }
 

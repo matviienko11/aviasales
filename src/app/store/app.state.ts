@@ -1,6 +1,6 @@
-import {Ticket} from "../interfaces/ticket.interface";
+import {TicketInterface} from "../interfaces/ticket.interface";
 
 export interface AppState {
   searchId: string
-  ticket: Ticket[]
+  ticket: TicketInterface[]
 }
