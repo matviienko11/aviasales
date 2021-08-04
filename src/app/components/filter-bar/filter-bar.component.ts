@@ -19,32 +19,7 @@ export class FilterBarComponent implements OnInit, onChanges {
 
   tickets: TicketInterface[];
 
-  // sortedByPriceTickets$ = this.store.select(state => {
-  //   const copiedArr = [...state.tickets];
-  //   return copiedArr.sort((a: any, b: any) => {
-  //     return a.price - b.price
-  //   }).slice(0, 5)
-  // })
-
-  // tickets = this.store.select(selectTickets)
-
-  // sortedBySpeedTickets$ = this.store.select(state => {
-  //   let copiedArr = [...state.tickets];
-  //   return copiedArr.sort((a: any, b: any) => {
-  //     const one = a.segments[0].duration + a.segments[1].duration;
-  //     const two = b.segments[0].duration + b.segments[1].duration;
-  //     return one - two;
-  //   }).slice(0, 5);
-  // })
-
-  // sortedByPriceTickets: Observable<Ticket[]> = this.sortedByPriceTickets$;
-  // sortedBySpeedTickets: Observable<Ticket[]> = this.sortedBySpeedTickets$;
-
-  // sortedByPriceTickets: Observable<Ticket[]>;
-  // sortedBySpeedTickets: Observable<Ticket[]>;
-
-  // sortedTickets$: Observable<TicketInterface[]>
-  // sortedTickets: TicketInterface[];
+  filterArr: any[] = [];
 
   constructor(private store: Store<any>) { }
 
@@ -52,13 +27,8 @@ export class FilterBarComponent implements OnInit, onChanges {
     this.store.dispatch(loadSearchId());
     this.store.dispatch(loadTickets());
     this.store.dispatch(sortingTickets({sorting: 'Самый дешевый'}));
+    this.store.dispatch(filterTickets({filters: [""]}))
     this.store.select(selectTickets).subscribe(res => this.tickets = res);
-
-    // this.store.dispatch(filterTickets({filters: []}))
-
-
-    console.log(this.stopsNumber);
-
   }
 
   handleTabChange(e: any) {
@@ -67,29 +37,10 @@ export class FilterBarComponent implements OnInit, onChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-
-    // this.store.select(selectTickets).subscribe(res => console.log(res))
-
-    // if(this.stopsNumber) {
-    //   this.sortedByPriceTickets = this.store.select(state => {
-    //     const copiedArr = [...state.tickets];
-    //     return copiedArr.sort((a: any, b: any) => {
-    //       return a.price - b.price
-    //     }).filter(
-    //       i => i.segments[0].stops.length + i.segments[1].stops.length == (changes.stopsNumber.currentValue || changes.stopsNumber.previousValue)
-    //     ).slice(0, 5);
-    //   })
-    //
-    //   this.sortedBySpeedTickets = this.store.select(state => {
-    //     let copiedArr = [...state.tickets];
-    //     return copiedArr.sort((a: any, b: any) => {
-    //       const one = a.segments[0].duration + a.segments[1].duration;
-    //       const two = b.segments[0].duration + b.segments[1].duration;
-    //       return one - two;
-    //     }).filter(
-    //       i => i.segments[0].stops.length + i.segments[1].stops.length == (changes.stopsNumber.currentValue || changes.stopsNumber.previousValue)
-    //     ).slice(0, 5);
-    //   })
-    //   return;
+    if(changes.stopsNumber.currentValue) {
+      this.filterArr.push(changes.stopsNumber.currentValue)
+      this.store.dispatch(filterTickets({filters: [...this.filterArr]}))
+      this.store.select(selectTickets).subscribe();
     }
+  }
 }
