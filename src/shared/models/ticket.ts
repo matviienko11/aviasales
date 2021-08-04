@@ -1,15 +1,14 @@
 import {TicketInterface} from "../../app/interfaces/ticket.interface";
+import {Segment} from "./segment";
 
 export class Ticket {
   carrier: string;
   price: number;
-  segments: Array<any>
-  stops: number;
+  segments: Array<Segment>
 
   constructor(ticket: TicketInterface) {
     this.carrier = ticket.carrier;
     this.price = ticket.price;
-    this.segments = ticket.segments;
-    this.stops = this.segments[0].stops.length + this.segments[1].stops.length;
+    this.segments = ticket.segments.map(segment => new Segment(segment))
   }
 }
