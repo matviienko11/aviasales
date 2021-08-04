@@ -2,18 +2,6 @@ import {createFeatureSelector, createSelector} from "@ngrx/store";
 import {AppState} from "./app.state";
 import { Ticket } from "src/shared/models/ticket";
 
-// export const selectSearchId = createSelector(
-//   (state: AppState) => state.searchId,
-//   ({searchId}: any) => searchId
-// )
-//
-// export const selectTicket = createSelector(
-//   (state: AppState) => state.ticket,
-//   (tickets: Array<Ticket>) => {
-//     return tickets;
-//   }
-// )
-
 const feature = createFeatureSelector<any>('tickets');
 
 export const selectTickets = createSelector(
@@ -49,8 +37,7 @@ enum Filters {
 }
 
 const createFilterFn = (filterType: Filters) => {
-  console.log('filterType', filterType)
-  switch (Number(filterType)) {
+  switch (filterType) {
     case Filters.NONE:
       return (item: Ticket) => (item.segments[0].stops.length + item.segments[1].stops.length) === 0;
     case Filters.ONE:

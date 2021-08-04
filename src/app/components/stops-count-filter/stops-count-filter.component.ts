@@ -19,7 +19,7 @@ export class StopsCountFilterComponent implements OnInit {
 
   handleStops(e: any) {
     if(e.currentTarget.checked) {
-      this.stopsNumber.emit(e.target.value)
+      this.stopsNumber.emit(Number(e.target.value))
     }
     if(!e.currentTarget.checked) {
       this.stopsNumber.emit(null)
