@@ -6,12 +6,12 @@ export class Ticket {
   price: number;
   segments: Array<Segment>
   stopsLength: number
-  arrivalTimeTo: any
-  arrivalTimeFrom: any
-  flightLengthTo: any
-  flightLengthFrom: any
+  arrivalTimeTo: Date
+  arrivalTimeFrom: Date
+  flightLengthTo: string
+  flightLengthFrom: string
 
-  getArrivalTime(startTime: any, duration: any): any {
+  getArrivalTime(startTime: string, duration: number): Date {
     const formattedStartTime = Date.parse(startTime);
     const durInMls = duration * 60000;
     return new Date(formattedStartTime + durInMls)
