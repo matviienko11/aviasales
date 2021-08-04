@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  stopsNumber: any;
+  stopsNumber: any[] = [];
 
-  handleStopsNumber(e: any) {
-    this.stopsNumber = e;
+  handleStopsNumber(e: any[]) {
+    this.stopsNumber = [...e]
   }
 }

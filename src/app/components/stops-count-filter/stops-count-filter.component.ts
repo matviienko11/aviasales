@@ -12,6 +12,9 @@ export class StopsCountFilterComponent implements OnInit {
   @Output()
   stopsNumber = new EventEmitter<any>();
 
+  @Output()
+  stopArr: any[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
@@ -19,10 +22,15 @@ export class StopsCountFilterComponent implements OnInit {
 
   handleStops(e: any) {
     if(e.currentTarget.checked) {
-      this.stopsNumber.emit(Number(e.target.value))
+      this.stopArr.push(+e.target.value);
+      this.stopsNumber.emit(this.stopArr)
+      // this.stopsNumber.emit(Number(e.target.value))
     }
     if(!e.currentTarget.checked) {
-      this.stopsNumber.emit(null)
+      this.stopArr = [...this.stopArr].filter(i => i !== +e.target.value)
+      this.stopsNumber.emit(this.stopArr)
+      // this.stopsNumber.emit(null)
+
     }
   }
 }

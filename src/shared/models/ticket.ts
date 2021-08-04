@@ -11,28 +11,29 @@ export class Ticket {
   flightLengthTo: string
   flightLengthFrom: string
 
-  getArrivalTime(startTime: string, duration: number): Date {
-    const formattedStartTime = Date.parse(startTime);
-    const durInMls = duration * 60000;
-    return new Date(formattedStartTime + durInMls)
-  }
-
-  getFlightLength(value: number): string {
-    let hours = (value / 60);
-    let rhours = Math.floor(hours);
-    let minutes = (hours - rhours) * 60;
-    let rminutes = Math.round(minutes);
-    return `${rhours}ч ${rminutes}м`;
-  }
-
   constructor(ticket: TicketInterface) {
     this.carrier = ticket.carrier;
     this.price = ticket.price;
     this.segments = ticket.segments.map(segment => new Segment(segment))
     this.stopsLength = ticket.segments[0].stops.length + ticket.segments[1].stops.length
-    this.arrivalTimeTo = this.getArrivalTime(ticket.segments[0].date, ticket.segments[0].duration)
-    this.arrivalTimeFrom = this.getArrivalTime(ticket.segments[1].date, ticket.segments[1].duration)
-    this.flightLengthTo = this.getFlightLength(ticket.segments[0].duration)
-    this.flightLengthFrom = this.getFlightLength(ticket.segments[1].duration)
+    this.arrivalTimeTo = this.getArrivalTime(0)
+    this.arrivalTimeFrom = this.getArrivalTime(1)
+    this.flightLengthTo = this.getFlightLength(0)
+    this.flightLengthFrom = this.getFlightLength(1)
+  }
+
+  getArrivalTime(value: number): Date {
+    const formattedStartTime = Date.parse(this.segments[value].date);
+    const durInMls = this.segments[value].duration * 60000;
+    return new Date(formattedStartTime + durInMls)
+  }
+
+
+  getFlightLength(value: number): string {
+    const hours = (this.segments[value].duration / 60);
+    const rhours = Math.floor(hours);
+    const minutes = (hours - rhours) * 60;
+    const rminutes = Math.round(minutes);
+    return `${rhours}ч ${rminutes}м`;
   }
 }

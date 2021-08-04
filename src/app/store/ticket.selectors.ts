@@ -9,11 +9,11 @@ export const selectTickets = createSelector(
   ({ data = [], sorting, filters = [] }) => {
     // console.log('Tickets: ', data);
     // console.log('Sorting: ', sorting);
-    // console.log('Filters: ', filters);
+    console.log('Filters: ', filters);
     return data
       .map((ticket: any) => new Ticket(ticket))
       .sort(getSortFn(sorting))
-      .filter(getFilterFn(filters))
+      .filter(getFilterFn(data, filters))
       .slice(0, 5)
   }
 )
@@ -33,11 +33,14 @@ enum Filters {
   NONE = 0,
   ONE = 1,
   TWO = 2,
-  THREE = 3
+  THREE = 3,
+  ALL = 4
 }
 
-const createFilterFn = (filterType: Filters) => {
+const createFilterFn = (data: any, filterType: Filters) => {
   switch (filterType) {
+    case Filters.ALL:
+      return (() => data)
     case Filters.NONE:
       return (item: Ticket) => item.stopsLength === 0;
     case Filters.ONE:
@@ -47,12 +50,12 @@ const createFilterFn = (filterType: Filters) => {
     case Filters.THREE:
       return (item: Ticket) => item.stopsLength === 3;
     default:
-      return (item: Ticket) => true;
+      return () => data;
   }
 }
 
-const getFilterFn = (filters: any[] = []) => {
-  const filtersArr = filters.map(filter => createFilterFn(filter));
+const getFilterFn = (data:any [], filters: any[] = []) => {
+  const filtersArr = filters.map(filter => createFilterFn(data, filter));
   return (item: any) => {
     return filtersArr.some((fn: any) => fn(item));
   }

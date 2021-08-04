@@ -18,8 +18,6 @@ export class FilterBarComponent implements OnInit, onChanges {
 
   tickets: Ticket[];
 
-  filterArr: any[] = [];
-
   constructor(private store: Store<any>) { }
 
   ngOnInit(): void {
@@ -36,9 +34,8 @@ export class FilterBarComponent implements OnInit, onChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if(changes.stopsNumber.currentValue || changes.stopsNumber.currentValue === 0) {
-      this.filterArr.push(changes.stopsNumber.currentValue)
-      this.store.dispatch(filterTickets({filters: [...this.filterArr]}))
+    if(changes.stopsNumber.currentValue.length) {
+      this.store.dispatch(filterTickets({filters: [...changes.stopsNumber.currentValue]}))
       this.store.select(selectTickets).subscribe();
     }
   }
