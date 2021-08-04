@@ -39,15 +39,14 @@ enum Filters {
 const createFilterFn = (filterType: Filters) => {
   switch (filterType) {
     case Filters.NONE:
-      return (item: Ticket) => (item.segments[0].stops.length + item.segments[1].stops.length) === 0;
+      return (item: Ticket) => item.stopsLength === 0;
     case Filters.ONE:
-      return (item: Ticket) => (item.segments[0].stops.length + item.segments[1].stops.length) === 1;
+      return (item: Ticket) => item.stopsLength === 1;
     case Filters.TWO:
-      return (item: Ticket) => (item.segments[0].stops.length + item.segments[1].stops.length) === 2;
+      return (item: Ticket) => item.stopsLength === 2;
     case Filters.THREE:
-      return (item: Ticket) => (item.segments[0].stops.length + item.segments[1].stops.length) === 3;
+      return (item: Ticket) => item.stopsLength === 3;
     default:
-      console.log("default")
       return (item: Ticket) => true;
   }
 }

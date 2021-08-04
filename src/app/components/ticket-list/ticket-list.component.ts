@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TicketInterface} from "../../interfaces/ticket.interface";
+import {Ticket} from "../../../shared/models/ticket";
 
 @Component({
   selector: 'app-ticket-list',
@@ -10,7 +10,7 @@ export class TicketListComponent implements OnInit {
 
 
   @Input()
-  tickets?: TicketInterface[] | null;
+  tickets: Ticket[] | null;
 
   constructor() { }
 

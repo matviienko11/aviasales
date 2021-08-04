@@ -1,9 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {filterTickets, loadSearchId, loadTickets, sortingTickets} from "../../store/ticket.actions";
-import {Observable} from "rxjs";
-import {TicketInterface} from "../../interfaces/ticket.interface";
 import {selectTickets} from "../../store/ticket.selectors";
+import {Ticket} from "../../../shared/models/ticket";
 
 interface onChanges {
 }
@@ -17,7 +16,7 @@ export class FilterBarComponent implements OnInit, onChanges {
 
   @Input() stopsNumber: any;
 
-  tickets: TicketInterface[];
+  tickets: Ticket[];
 
   filterArr: any[] = [];
 

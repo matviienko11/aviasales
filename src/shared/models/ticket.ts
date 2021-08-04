@@ -5,10 +5,12 @@ export class Ticket {
   carrier: string;
   price: number;
   segments: Array<Segment>
+  stopsLength: number
 
   constructor(ticket: TicketInterface) {
     this.carrier = ticket.carrier;
     this.price = ticket.price;
     this.segments = ticket.segments.map(segment => new Segment(segment))
+    this.stopsLength = ticket.segments[0].stops.length + ticket.segments[1].stops.length
   }
 }

@@ -1,5 +1,5 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
-import {TicketInterface} from "../../interfaces/ticket.interface";
+import {Component, Input, OnInit} from '@angular/core';
+import {Ticket} from "../../../shared/models/ticket";
 
 @Component({
   selector: 'app-ticket-item',
@@ -8,7 +8,7 @@ import {TicketInterface} from "../../interfaces/ticket.interface";
 })
 export class TicketItemComponent implements OnInit {
 
-  @Input() ticket: TicketInterface;
+  @Input() ticket: Ticket;
 
   constructor() { }
 
