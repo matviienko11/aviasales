@@ -7,11 +7,11 @@
     <div class="direction">
       <div>
         <p>{{ticket.segments[0].origin + '-' + ticket.segments[0].destination}}</p>
-        <p>{{ticket.segments[0].date | date: 'HH:mm': 'GMT'}} - {{ticket.segments[0].date | timeDiff: ticket.segments[0].duration | date: 'HH:mm': 'GMT'}}</p>
+        <p>{{ticket.segments[0].date | date: 'HH:mm': 'GMT'}} - {{ticket.arrivalTimeTo | date: 'HH:mm': 'GMT'}}</p>
       </div>
       <div>
         <p>В ПУТИ</p>
-        <p>{{ticket.segments[0].duration | hours}}</p>
+        <p>{{ticket.flightLengthTo}}</p>
       </div>
       <div>
         <p>{{ticket.segments[0].stops.length | stops}}</p>
@@ -21,11 +21,11 @@
     <div class="direction">
       <div>
         <p>{{ticket.segments[1].origin + '-' + ticket.segments[1].destination}}</p>
-        <p>{{ticket.segments[1].date | date: 'HH:mm': 'GMT'}} - {{ticket.segments[1].date | timeDiff: ticket.segments[1].duration | date: 'HH:mm': 'GMT'}}</p>
+        <p>{{ticket.segments[1].date | date: 'HH:mm': 'GMT'}} - {{ticket.arrivalTimeFrom | date: 'HH:mm': 'GMT'}}</p>
       </div>
       <div>
         <p>В ПУТИ</p>
-        <p>{{ticket.segments[1].duration | hours}}</p>
+        <p>{{ticket.flightLengthFrom}}</p>
       </div>
       <div>
         <p>{{ticket.segments[1].stops.length | stops}}</p>
