@@ -1,25 +1,14 @@
 import {Injectable} from "@angular/core";
-import {Actions, concatLatestFrom, createEffect, ofType} from "@ngrx/effects";
+import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {TicketsService} from "../services/tickets.service";
-import {catchError, map, mergeMap, switchMap, tap} from "rxjs/operators";
-import {of, pipe, throwError} from "rxjs";
-import {errorSearchId, errorTickets, getSearchId, getTickets, loadSearchId, loadTickets} from "./ticket.actions";
-import {Store} from "@ngrx/store";
-import * as fromRoot from "./ticket.reducer";
-import {searchIdReducer} from "./ticket.reducer";
+import {catchError, map, switchMap} from "rxjs/operators";
+import {of} from "rxjs";
+import {errorTickets, getTickets, loadTickets} from "./ticket.actions";
+
+
 
 @Injectable()
 export class TicketsEffects {
-
-  loadSearchId$ = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(loadSearchId),
-      switchMap(() => this.ticketService.getSearchId().pipe(
-        map(searchId => getSearchId({searchId})),
-        catchError(() => of(errorSearchId()))
-      ))
-    )
-  })
 
   loadTickets$ = createEffect(() => {
     return this.actions$.pipe(
@@ -39,7 +28,6 @@ export class TicketsEffects {
   constructor(
     private actions$: Actions,
     private ticketService: TicketsService,
-    private store: Store<any>
   ) {
   }
 }

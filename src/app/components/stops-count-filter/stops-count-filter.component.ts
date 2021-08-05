@@ -24,13 +24,10 @@ export class StopsCountFilterComponent implements OnInit {
     if(e.currentTarget.checked) {
       this.stopArr.push(+e.target.value);
       this.stopsNumber.emit(this.stopArr)
-      // this.stopsNumber.emit(Number(e.target.value))
     }
     if(!e.currentTarget.checked) {
       this.stopArr = [...this.stopArr].filter(i => i !== +e.target.value)
       this.stopsNumber.emit(this.stopArr)
-      // this.stopsNumber.emit(null)
-
     }
   }
 }

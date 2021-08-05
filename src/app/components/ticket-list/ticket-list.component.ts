@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Ticket} from "../../../shared/models/ticket";
 import {Store} from "@ngrx/store";
 import {selectError} from "../../store/ticket.selectors";
-import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-ticket-list',
