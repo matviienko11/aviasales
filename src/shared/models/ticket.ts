@@ -43,6 +43,8 @@ export class Ticket {
 
   getFlightLength(value: number): string {
     const duration = moment.duration(this.segments[value].duration, "minutes");
-    return `${duration.hours()}ч ${duration.minutes()}м`
+    const hh = (duration.years()*(365*24)) + (duration.months()*(30*24)) + (duration.days()*24) + (duration.hours());
+    const mm = duration.minutes();
+    return `${hh}ч ${mm}м`
   }
 }
