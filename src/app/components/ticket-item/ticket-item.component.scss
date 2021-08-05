@@ -1,14 +1,26 @@
 @import "./src/styles";
 
 .card {
+  padding: 1rem;
   margin: 2rem 0.3rem;
-  width: 600px;
+  width: 520px;
   box-shadow: $box-shadow;
 }
 
 .header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+
+  .price {
+    color: $blue;
+    font-weight: bolder;
+    font-size: x-large;
+  }
+
+  .logo {
+    height: 60px;
+    width: 200px
+  }
 }
 
 .direction {
@@ -17,14 +29,29 @@
   font-family: $font-family;
   font-weight: bold;
 
-  div {
-    margin: 1rem;
-  }
-
   .direction_head {
     color: darkgrey;
   }
 }
+
+@media (max-width: $small-width) {
+  .card {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    .direction, .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+}
+
 
 
 

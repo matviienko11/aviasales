@@ -1,4 +1,13 @@
+@import "src/styles";
+
 .ticket_list_wrapper {
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: $small-width) {
+  .ticket_list_wrapper {
+    display: flex;
+    align-items: center;
+  }
 }

@@ -1,4 +1,4 @@
-<mat-tab-group (selectedTabChange)="handleTabChange($event)">
+<mat-tab-group mat-align-tabs="center" (selectedTabChange)="handleTabChange($event)">
   <mat-tab label="САМЫЙ ДЕШЕВЫЙ">
     <app-ticket-list [tickets]="tickets"></app-ticket-list>
   </mat-tab>

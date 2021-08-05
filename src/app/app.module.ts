@@ -20,6 +20,7 @@ import {environment} from "../environments/environment";
 import {EffectsModule} from "@ngrx/effects";
 import {TicketsEffects} from "./store/tickets.effects";
 import {stopsFormatPipe} from "./utils/pipes/stops-format.pipe";
+import {priceFormatPipe} from "./utils/pipes/price-format.pipe";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {stopsFormatPipe} from "./utils/pipes/stops-format.pipe";
     TicketItemComponent,
     FilterBarComponent,
     StopsCountFilterComponent,
-    stopsFormatPipe
+    stopsFormatPipe,
+    priceFormatPipe
   ],
   imports: [
     BrowserModule,

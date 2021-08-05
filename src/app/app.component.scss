@@ -1,13 +1,31 @@
-.wrapper {
+@import "src/styles";
+
+.logo_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.app_main_logo {
+  height: 100px;
+  width: 120px;
+}
+
+.content_wrapper {
   display: flex;
   justify-content: space-around;
-  padding: 4rem;
+  padding: 4rem 7rem;
+  min-width: 30%;
 }
 
-.left {
-  width: 30%;
-}
-
-.right {
-  width: 60%;
+@media (max-width: $medium-width) {
+  .content_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .left {
+      margin-bottom: 2rem;
+    }
+  }
 }
