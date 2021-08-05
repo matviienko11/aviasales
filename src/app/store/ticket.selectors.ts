@@ -2,6 +2,19 @@ import {createFeatureSelector, createSelector} from "@ngrx/store";
 import {AppState} from "./app.state";
 import { Ticket } from "src/shared/models/ticket";
 
+enum Filters {
+  NONE = 0,
+  ONE = 1,
+  TWO = 2,
+  THREE = 3,
+  ALL = 4
+}
+
+enum Sorting {
+  CHEAPEST = 'САМЫЙ ДЕШЕВЫЙ',
+  QUICKEST = 'САМЫЙ БЫСТРЫЙ'
+}
+
 const feature = createFeatureSelector<any>('tickets');
 
 export const selectError = (state: AppState) => state.error;
@@ -18,22 +31,18 @@ export const selectTickets = createSelector(
 )
 
 const getSortFn = (sorting: string) => {
-  if(sorting === 'Самый дешевый') {
-    return (a: any,b: any) => a.price - b.price;
+  switch (sorting) {
+    case Sorting.CHEAPEST:
+      return (a: any,b: any) => a.price - b.price;
+    case Sorting.QUICKEST:
+    return (a:any, b: any) => {
+      const one = a.segments[0].duration + a.segments[1].duration;
+      const two = b.segments[0].duration + b.segments[1].duration;
+      return one - two;
+    }
+    default:
+      return (a: any,b: any) => a.price - b.price;
   }
-  return (a:any, b: any) => {
-    const one = a.segments[0].duration + a.segments[1].duration;
-    const two = b.segments[0].duration + b.segments[1].duration;
-    return one - two;
-  }
-}
-
-enum Filters {
-  NONE = 0,
-  ONE = 1,
-  TWO = 2,
-  THREE = 3,
-  ALL = 4
 }
 
 const createFilterFn = (data: any, filterType: Filters) => {

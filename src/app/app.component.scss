@@ -1,8 +1,7 @@
 .wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   padding: 4rem;
-  background-color: darkgrey;
 }
 
 .left {
@@ -10,5 +9,5 @@
 }
 
 .right {
-  width: 70%;
+  width: 60%;
 }

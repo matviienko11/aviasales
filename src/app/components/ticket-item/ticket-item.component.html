@@ -6,29 +6,29 @@
     </div>
     <div class="direction">
       <div>
-        <p>{{ticket.segments[0].origin + ' - ' + ticket.segments[0].destination}}</p>
+        <p class="direction_head">{{ticket.segments[0].origin + ' - ' + ticket.segments[0].destination}}</p>
         <p>{{ticket.departureTimeTo}} - {{ticket.arrivalTimeTo}}</p>
       </div>
       <div>
-        <p>В ПУТИ</p>
+        <p class="direction_head">В ПУТИ</p>
         <p>{{ticket.flightLengthTo}}</p>
       </div>
       <div>
-        <p>{{ticket.segments[0].stops.length | stops}}</p>
+        <p class="direction_head">{{ticket.segments[0].stops.length | stops}}</p>
         <p>{{ticket.segments[0].stops.join(', ')}}</p>
       </div>
     </div>
     <div class="direction">
       <div>
-        <p>{{ticket.segments[1].origin + ' - ' + ticket.segments[1].destination}}</p>
+        <p class="direction_head">{{ticket.segments[1].origin + ' - ' + ticket.segments[1].destination}}</p>
         <p>{{ticket.departureTimeFrom}} - {{ticket.arrivalTimeFrom}}</p>
       </div>
       <div>
-        <p>В ПУТИ</p>
+        <p class="direction_head">В ПУТИ</p>
         <p>{{ticket.flightLengthFrom}}</p>
       </div>
       <div>
-        <p>{{ticket.segments[1].stops.length | stops}}</p>
+        <p class="direction_head">{{ticket.segments[1].stops.length | stops}}</p>
         <p>{{ticket.segments[1].stops.join(', ')}}</p>
       </div>
     </div>

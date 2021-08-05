@@ -1,14 +1,12 @@
-//.stops_wrapper {
-//  display: flex;
-//  flex-direction: column;
-//  border: thin solid black;
-//
-//  div {
-//    padding: 0.8rem;
-//    margin: 0.5rem;
-//  }
-//}
-//
+@import "src/styles";
+.stops_card {
+  box-shadow: $box-shadow;
+}
+
+.stops_card_header {
+  font-family: $font-family;
+}
+
  div {
    padding: 0.5rem;
  }

@@ -1,6 +1,9 @@
+@import "./src/styles";
+
 .card {
-  margin: 2rem;
+  margin: 2rem 0.3rem;
   width: 600px;
+  box-shadow: $box-shadow;
 }
 
 .header {
@@ -11,8 +14,17 @@
 .direction {
   display: flex;
   justify-content: space-between;
+  font-family: $font-family;
+  font-weight: bold;
+
   div {
     margin: 1rem;
   }
+
+  .direction_head {
+    color: darkgrey;
+  }
 }
+
+
 

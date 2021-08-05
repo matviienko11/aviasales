@@ -22,7 +22,7 @@ export class FilterBarComponent implements OnInit, onChanges {
 
   ngOnInit(): void {
     this.store.dispatch(loadTickets());
-    this.store.dispatch(sortingTickets({sorting: 'Самый дешевый'}));
+    this.store.dispatch(sortingTickets({sorting: ''}));
     this.store.dispatch(filterTickets({filters: ['']}))
     this.store.select(selectTickets).subscribe(res => this.tickets = res);
   }
