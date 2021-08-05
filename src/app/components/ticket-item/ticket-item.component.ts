@@ -14,8 +14,4 @@ export class TicketItemComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  showTicket(ticket: any) {
-    console.log(ticket)
-  }
 }

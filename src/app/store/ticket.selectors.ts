@@ -7,9 +7,6 @@ const feature = createFeatureSelector<any>('tickets');
 export const selectTickets = createSelector(
   feature,
   ({ data = [], sorting, filters = [] }) => {
-    // console.log('Tickets: ', data);
-    // console.log('Sorting: ', sorting);
-    console.log('Filters: ', filters);
     return data
       .map((ticket: any) => new Ticket(ticket))
       .sort(getSortFn(sorting))

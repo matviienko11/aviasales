@@ -4,7 +4,7 @@ import {Pipe, PipeTransform} from "@angular/core";
   name: 'stops'
 })
 export class stopsFormatPipe implements PipeTransform {
-  transform(value: any, ...args: any): any {
+  transform(value: number): string {
     if(value === 0) {
       return `${value} ПЕРЕСАДОК`
     } else if(value === 1) {

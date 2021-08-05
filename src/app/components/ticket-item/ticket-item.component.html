@@ -1,13 +1,13 @@
 <mat-card class="card">
-  <mat-card-content (click)="showTicket(ticket)">
+  <mat-card-content>
     <div class="header">
           <p>{{ticket.price}}</p>
           <p>Aviasales logo</p>
     </div>
     <div class="direction">
       <div>
-        <p>{{ticket.segments[0].origin + '-' + ticket.segments[0].destination}}</p>
-        <p>{{ticket.segments[0].date | date: 'HH:mm': 'GMT'}} - {{ticket.arrivalTimeTo | date: 'HH:mm': 'GMT'}}</p>
+        <p>{{ticket.segments[0].origin + ' - ' + ticket.segments[0].destination}}</p>
+        <p>{{ticket.departureTimeTo}} - {{ticket.arrivalTimeTo}}</p>
       </div>
       <div>
         <p>В ПУТИ</p>
@@ -20,8 +20,8 @@
     </div>
     <div class="direction">
       <div>
-        <p>{{ticket.segments[1].origin + '-' + ticket.segments[1].destination}}</p>
-        <p>{{ticket.segments[1].date | date: 'HH:mm': 'GMT'}} - {{ticket.arrivalTimeFrom | date: 'HH:mm': 'GMT'}}</p>
+        <p>{{ticket.segments[1].origin + ' - ' + ticket.segments[1].destination}}</p>
+        <p>{{ticket.departureTimeFrom}} - {{ticket.arrivalTimeFrom}}</p>
       </div>
       <div>
         <p>В ПУТИ</p>
