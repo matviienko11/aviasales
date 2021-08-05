@@ -14,7 +14,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatTabsModule} from "@angular/material/tabs";
 import {HttpClientModule} from "@angular/common/http";
 import {StoreModule} from "@ngrx/store";
-import {searchIdReducer, ticketReducer} from "./store/ticket.reducer";
+import {errorReducer, searchIdReducer, ticketReducer} from "./store/ticket.reducer";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {environment} from "../environments/environment";
 import {EffectsModule} from "@ngrx/effects";
@@ -38,7 +38,7 @@ import {stopsFormatPipe} from "./utils/pipes/stops-format.pipe";
     MatCardModule,
     MatButtonModule,
     MatTabsModule,
-    StoreModule.forRoot({searchId: searchIdReducer, tickets: ticketReducer}),
+    StoreModule.forRoot({searchId: searchIdReducer, tickets: ticketReducer, error: errorReducer}),
     EffectsModule.forRoot([TicketsEffects]),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
     HttpClientModule

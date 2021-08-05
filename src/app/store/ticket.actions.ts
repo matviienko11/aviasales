@@ -23,7 +23,8 @@ export const getTickets = createAction(
 )
 
 export const errorTickets = createAction(
-  '[TICKETS] Error tickets'
+  '[TICKETS] Error tickets',
+  props<{error: string}>()
 )
 
 export const filterTickets = createAction(

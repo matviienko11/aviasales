@@ -1,4 +1,7 @@
-<div class="ticket_list_wrapper">
+<div class="ticket_list_wrapper" *ngIf="!errorMessage; else error">
   <app-ticket-item *ngFor="let ticket of tickets"
                    [ticket]="ticket"></app-ticket-item>
 </div>
+<ng-template #error>
+  {{errorMessage}}
+</ng-template>

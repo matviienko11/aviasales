@@ -28,20 +28,21 @@ export class Ticket {
   }
 
   getDepartureTime(value: number): string {
-    return moment(this.segments[value].date).tz('GMT').format('HH:mm');
+    return moment(this.segments[value].date)
+      .tz('GMT')
+      .format('HH:mm');
   }
 
   getArrivalTime(value: number): string {
-    const startTime = moment(this.segments[value].date).tz('GMT');
     const duration = this.segments[value].duration;
-    return startTime.clone().add(duration, "minutes").format('HH:mm')
+    return moment(this.segments[value].date)
+      .tz('GMT')
+      .add(duration, "minutes")
+      .format('HH:mm');
   }
 
   getFlightLength(value: number): string {
-    const hours = (this.segments[value].duration / 60);
-    const rhours = Math.floor(hours);
-    const minutes = (hours - rhours) * 60;
-    const rminutes = Math.round(minutes);
-    return `${rhours}ч ${rminutes}м`;
+    const duration = moment.duration(this.segments[value].duration, "minutes");
+    return `${duration.hours()}ч ${duration.minutes()}м`
   }
 }

@@ -4,6 +4,8 @@ import { Ticket } from "src/shared/models/ticket";
 
 const feature = createFeatureSelector<any>('tickets');
 
+export const selectError = (state: AppState) => state.error;
+
 export const selectTickets = createSelector(
   feature,
   ({ data = [], sorting, filters = [] }) => {
@@ -37,7 +39,7 @@ enum Filters {
 const createFilterFn = (data: any, filterType: Filters) => {
   switch (filterType) {
     case Filters.ALL:
-      return (() => data)
+      return () => data;
     case Filters.NONE:
       return (item: Ticket) => item.stopsLength === 0;
     case Filters.ONE:

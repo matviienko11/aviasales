@@ -1,9 +1,10 @@
 import {createReducer, on, Action} from "@ngrx/store";
-import {filterTickets, getSearchId, getTickets, sortingTickets} from "./ticket.actions";
+import {errorTickets, filterTickets, getSearchId, getTickets, sortingTickets} from "./ticket.actions";
 import {Ticket} from "../../shared/models/ticket";
 
 export const initialSearchState: string = '';
 export const initialTicketState: Ticket[] = [];
+export const initialErrorState: string = '';
 
 export const searchIdReducer = createReducer(
     initialSearchState,
@@ -20,7 +21,7 @@ export const ticketReducer = createReducer(
       data: tickets.tickets
     }
   }),
-  on(sortingTickets, (state, { sorting }) => {
+  on(sortingTickets, (state, {sorting}) => {
     return {
       ...state,
       sorting
@@ -31,5 +32,12 @@ export const ticketReducer = createReducer(
       ...state,
       filters
     }
+  })
+)
+
+export const errorReducer = createReducer(
+  initialErrorState,
+  on(errorTickets, (state, {error}) => {
+    return error
   })
 )
