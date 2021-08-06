@@ -1,7 +1,43 @@
-:host ::ng-deep .mat-tab-label-active {
-  background-color: #328bf3;
-  color: #ebf3fc;
+@import "src/styles";
+
+.filter_bar_wrapper {
+  width: 502px;
+  height: 50px;
+  display: flex;
+  border-radius: 20px;
+  button {
+    flex: 1;
+    background-color: white;
+    color: #4A4A4A;
+    font-size: 12px;
+    border: 1px solid #DFE5EC;
+   }
+  .writing {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .cheapest_btn {
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+  }
+  .quickest_btn {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  button:hover {
+    cursor: pointer;
+  }
+  .btn_active {
+    background-color: $blue;
+    color: white;
+  }
 }
-:host ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
-  display: none;
+
+@media (max-width: $small-width) {
+  .filter_bar_wrapper {
+    width: 300px;
+  }
 }
+
+

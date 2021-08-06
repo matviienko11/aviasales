@@ -1,9 +1,12 @@
-<mat-tab-group mat-align-tabs="start" (selectedTabChange)="handleTabChange($event)">
-  <mat-tab label="САМЫЙ ДЕШЕВЫЙ">
-    <app-ticket-list [tickets]="tickets"></app-ticket-list>
-  </mat-tab>
-  <mat-tab label="САМЫЙ БЫСТРЫЙ">
-    <app-ticket-list [tickets]="tickets"></app-ticket-list>
-  </mat-tab>
-</mat-tab-group>
+<div>
+  <div class="filter_bar_wrapper">
+    <button class="cheapest_btn" [ngClass]="{'btn_active': isCheapest}" (click)="toggleSorting('САМЫЙ ДЕШЕВЫЙ')">
+      <span class="writing">САМЫЙ ДЕШЕВЫЙ</span>
+    </button>
+    <button class="quickest_btn" [ngClass]="{'btn_active': isQuickest}" (click)="toggleSorting('САМЫЙ БЫСТРЫЙ')">
+      <span class="writing">САМЫЙ БЫСТРЫЙ</span>
+    </button>
+  </div>
+  <app-ticket-list [tickets]="tickets"></app-ticket-list>
+</div>
 

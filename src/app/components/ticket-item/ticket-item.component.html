@@ -1,38 +1,39 @@
-<mat-card class="card">
+<div class="card">
   <div class="card_content">
     <div class="header">
-          <p class="price">{{ticket.price | price}}</p>
+          <div class="price">{{ticket.price | price}}</div>
           <img class="logo" src="assets/S7_new_logo.svg.png" alt="companyLogo">
     </div>
-    <div class="direction">
-      <div>
-        <p class="direction_head">{{ticket.segments[0].origin + ' - ' + ticket.segments[0].destination}}</p>
-        <p>{{ticket.departureTimeTo}} - {{ticket.arrivalTimeTo}}</p>
+    <div class="card-info-wrapper">
+      <div class="direction">
+        <div class="direction-cell">
+          <div class="direction_head">{{ticket.segments[0].origin + ' - ' + ticket.segments[0].destination}}</div>
+          <div class="direction_info">{{ticket.departureTimeTo}} - {{ticket.arrivalTimeTo}}</div>
+        </div>
+        <div class="direction-cell">
+          <div class="direction_head">В ПУТИ</div>
+          <div class="direction_info">{{ticket.flightLengthTo}}</div>
+        </div>
+        <div class="direction-cell">
+          <div class="direction_head">{{ticket.segments[0].stops.length | stops}}</div>
+          <div class="direction_info">{{ticket.segments[0].stops.join(', ')}}</div>
+        </div>
       </div>
-      <div>
-        <p class="direction_head">В ПУТИ</p>
-        <p>{{ticket.flightLengthTo}}</p>
-      </div>
-      <div>
-        <p class="direction_head">{{ticket.segments[0].stops.length | stops}}</p>
-        <p>{{ticket.segments[0].stops.join(', ')}}</p>
+      <div class="direction">
+        <div class="direction-cell">
+          <div class="direction_head">{{ticket.segments[1].origin + ' - ' + ticket.segments[1].destination}}</div>
+          <div class="direction_info">{{ticket.departureTimeFrom}} - {{ticket.arrivalTimeFrom}}</div>
+        </div>
+        <div class="direction-cell">
+          <div class="direction_head">В ПУТИ</div>
+          <div class="direction_info">{{ticket.flightLengthFrom}}</div>
+        </div>
+        <div class="direction-cell">
+          <div class="direction_head">{{ticket.segments[1].stops.length | stops}}</div>
+          <div class="direction_info">{{ticket.segments[1].stops.join(', ')}}</div>
+        </div>
       </div>
     </div>
-    <div class="direction">
-      <div>
-        <p class="direction_head">{{ticket.segments[1].origin + ' - ' + ticket.segments[1].destination}}</p>
-        <p>{{ticket.departureTimeFrom}} - {{ticket.arrivalTimeFrom}}</p>
-      </div>
-      <div>
-        <p class="direction_head">В ПУТИ</p>
-        <p>{{ticket.flightLengthFrom}}</p>
-      </div>
-      <div>
-        <p class="direction_head">{{ticket.segments[1].stops.length | stops}}</p>
-        <p>{{ticket.segments[1].stops.join(', ')}}</p>
-      </div>
-    </div>
-
 
   </div>
-</mat-card>
+</div>

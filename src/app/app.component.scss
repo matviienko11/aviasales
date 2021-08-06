@@ -8,18 +8,15 @@
 }
 
 .app_main_logo {
-  height: 100px;
-  width: 120px;
+  height: 90px;
+  width: 90px;
 }
 
 .content_wrapper {
   display: flex;
   justify-content: center;
-  padding: 4rem 7rem;
+  padding: 40px 100px;
   min-width: 30%;
-  .left {
-    margin-right: 2rem;
-  }
 }
 
 @media (max-width: $medium-width) {

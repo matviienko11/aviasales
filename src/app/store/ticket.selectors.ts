@@ -1,19 +1,7 @@
 import {createFeatureSelector, createSelector} from "@ngrx/store";
 import {AppState} from "./app.state";
 import { Ticket } from "src/shared/models/ticket";
-
-enum Filters {
-  NONE = 0,
-  ONE = 1,
-  TWO = 2,
-  THREE = 3,
-  ALL = 4
-}
-
-enum Sorting {
-  CHEAPEST = 'САМЫЙ ДЕШЕВЫЙ',
-  QUICKEST = 'САМЫЙ БЫСТРЫЙ'
-}
+import {Filters, Sorting} from "../utils/enums";
 
 const feature = createFeatureSelector<any>('tickets');
 
