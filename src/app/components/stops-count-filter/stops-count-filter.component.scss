@@ -3,10 +3,12 @@
   padding: 0;
   box-shadow: $box-shadow;
   width: 250px;
+  height: 325px;
 }
 
 .stops_card_header {
   font-family: $font-family;
+  padding-top: 1.5rem;
 }
 
  div {
@@ -26,8 +28,6 @@
      background-color: #d0dff5;
    }
  }
-
-
 
  input {
    height: 20px;

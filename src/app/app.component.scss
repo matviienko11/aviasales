@@ -14,9 +14,12 @@
 
 .content_wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   padding: 4rem 7rem;
   min-width: 30%;
+  .left {
+    margin-right: 2rem;
+  }
 }
 
 @media (max-width: $medium-width) {
